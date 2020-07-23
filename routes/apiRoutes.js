@@ -7,3 +7,5 @@ const Workout = require('../models/workout');
 router.post('/api/workout', (req, res) => {
   Workout.create({}).then();
 });
+
+module.exports = router;
