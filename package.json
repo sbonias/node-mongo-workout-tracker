@@ -9,6 +9,10 @@
     "watch": "nodemon server.js",
     "seed": "node seeders/seed.js"
   },
+  "engines": {
+    "node": "13.x",
+    "npm": "6.x"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
