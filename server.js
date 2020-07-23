@@ -25,10 +25,9 @@ mongoose.connect(MONGO_URI, {
 });
 
 // create routes
-// app.use(require('./routes/apiRoutes'));
+app.use(require('./routes/apiRoutes'));
 // app.use(require('./routes/htmlRoutes'));
 require('./routes/htmlRoutes')(app);
-require('./routes/apiRoutes')(app);
 
 // app.use(require('./routes/view.js'));
 

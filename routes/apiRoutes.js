@@ -9,7 +9,7 @@ const Exercise = require('../models/exercise');
 router.post('/api/workouts', (req, res) => {
   console.log(req.body);
 
-  Workout.insert(req.body, (error, data) => {
+  Workout.create(req.body, (error, data) => {
     if (error) {
       res.send(error);
     } else {
