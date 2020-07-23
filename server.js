@@ -22,8 +22,11 @@ mongoose.connect(MONGO_URI, {
   useFindAndModify: false,
 });
 
-// routes
-app.use(require('./routes/apiRoutes'));
+// create routes
+// app.use(require('./routes/apiRoutes'));
+// app.use(require('./routes/htmlRoutes'));
+require('./routes/htmlRoutes')(app);
+
 // app.use(require('./routes/view.js'));
 
 // listen
