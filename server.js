@@ -14,7 +14,9 @@ app.use(express.json());
 
 app.use(express.static('public'));
 
-let MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost/workout';
+let MONGO_URI =
+  process.env.MONGO_URI ||
+  'mongodb://user1:password1@ds041526.mlab.com:41526/heroku_l7q124j4';
 
 // connect to Mongoose
 mongoose.connect(MONGO_URI, {
@@ -26,6 +28,7 @@ mongoose.connect(MONGO_URI, {
 // app.use(require('./routes/apiRoutes'));
 // app.use(require('./routes/htmlRoutes'));
 require('./routes/htmlRoutes')(app);
+require('./routes/apiRoutes')(app);
 
 // app.use(require('./routes/view.js'));
 
