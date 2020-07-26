@@ -1,13 +1,14 @@
 // require express
 const router = require('express').Router();
 // require model
-const Workout = require('../models/workout');
+const db = require('../models');
 // const Exercise = require('../models/exercise');
 
 // Add new exercises to a new workout plan.
 
-router.post('/workouts', (req, res) => {
-  Workout.create(req.body)
+router.post('/api/workouts', (req, res) => {
+  console.log(req.body);
+  db.Workout.create(req.body)
     .then((dbWorkout) => {
       res.json(dbWorkout);
     })
