@@ -6,7 +6,7 @@ const db = require('../models');
 
 // Add new exercises to a new workout plan.
 
-router.post('/api/workouts', (req, res) => {
+router.post('/workouts', (req, res) => {
   console.log(req.body);
   db.Workout.create(req.body)
     .then((dbWorkout) => {

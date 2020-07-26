@@ -1,7 +1,8 @@
 const express = require('express');
 const logger = require('morgan');
-// require mongoose
 const mongoose = require('mongoose');
+const apiRoutes = require('./routes/apiRoutes');
+const htmlRoutes = require('./routes/htmlRoutes');
 
 const PORT = process.env.PORT || 5000;
 
@@ -25,9 +26,12 @@ mongoose.connect(MONGODB_URI, {
 });
 
 // create routes
-app.use(require('./routes/apiRoutes'));
+// require('./routes/apiRoutes')(app);
+// app.use(require('./routes/apiRoutes'));
 // app.use(require('./routes/htmlRoutes'));
-require('./routes/htmlRoutes')(app);
+// require('./routes/htmlRoutes')(app);
+app.use('/api', apiRoutes);
+app.use('/', htmlRoutes);
 
 // listen
 app.listen(PORT, () => {
