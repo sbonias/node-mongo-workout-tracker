@@ -29,8 +29,6 @@ app.use(require('./routes/apiRoutes'));
 // app.use(require('./routes/htmlRoutes'));
 require('./routes/htmlRoutes')(app);
 
-// app.use(require('./routes/view.js'));
-
 // listen
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
