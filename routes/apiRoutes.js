@@ -49,4 +49,16 @@ router.put('/workouts/:id', (req, res) => {
 
 // View multiple the combined weight of multiple exercises on the `stats` page.
 
+router.get('/workouts/range', (req, res) => {
+  db.Workout.find({})
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      if (err) {
+        res.status(500).json(err);
+      }
+    });
+});
+
 module.exports = router;
