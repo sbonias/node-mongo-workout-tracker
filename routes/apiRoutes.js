@@ -6,9 +6,9 @@ const db = require('../models/');
 
 // Add new exercises to a new workout plan.
 
-router.post('/workouts', ({ body }, res) => {
+router.post('/workouts', (req, res) => {
   // console.log(req.body);
-  db.Workout.create(body)
+  db.Workout.create(req.body)
     .then((dbWorkout) => {
       res.json(dbWorkout);
     })
@@ -16,6 +16,8 @@ router.post('/workouts', ({ body }, res) => {
       res.status(400).json(err);
     });
 });
+
+// handles displaying last workout stats on main page
 
 router.get('/workouts', (req, res) => {
   db.Workout.find({})
@@ -28,6 +30,22 @@ router.get('/workouts', (req, res) => {
 });
 
 // Add exercises to a previous workout plan.
+router.put('/workouts/:id', (req, res) => {
+  db.Workout.update(
+    { _id: req.params.id },
+    {
+      $push: {
+        exercises: req.body,
+      },
+    }
+  )
+    .then((dbWorkout) => {
+      res.json(dbWorkout);
+    })
+    .catch((err) => {
+      res.status(400).json(err);
+    });
+});
 
 // View multiple the combined weight of multiple exercises on the `stats` page.
 
